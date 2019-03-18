@@ -47,7 +47,7 @@ RUN apk add --update --no-cache \
 
 # Install ansible.
 RUN pip install --upgrade pip \
-  && pip install ansible==2.3.2.0 awscli s3cmd python-magic
+  && pip install ansible==2.4.6.0 awscli s3cmd python-magic
 
 # Install ansistrano.
 RUN ansible-galaxy install ansistrano.deploy ansistrano.rollback
