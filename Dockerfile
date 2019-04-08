@@ -60,5 +60,5 @@ RUN apk add --update --no-cache openjdk7-jre-base \
   && cd druflow \
   && ./gradlew assemble
 
-RUN useradd -u 1001 -g 1001 project
-USER project
+RUN addgroup -g 1001 docker && adduser -u 1001 docker docker
+USER docker
