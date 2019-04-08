@@ -59,3 +59,5 @@ RUN apk add --update --no-cache openjdk7-jre-base \
   && git clone --branch=v0.1.4 --depth=1 --single-branch https://github.com/aroq/druflow.git \
   && cd druflow \
   && ./gradlew assemble
+
+USER 1001
