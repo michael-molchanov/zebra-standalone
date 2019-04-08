@@ -60,4 +60,5 @@ RUN apk add --update --no-cache openjdk7-jre-base \
   && cd druflow \
   && ./gradlew assemble
 
-USER 1001
+RUN useradd -u 1001 project
+USER project
