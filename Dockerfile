@@ -60,5 +60,11 @@ RUN apk add --update --no-cache openjdk7-jre-base \
   && cd druflow \
   && ./gradlew assemble
 
-RUN addgroup -g 1001 docker && adduser -u 1001 -D -G docker docker
+RUN apk add --update --no-cache sudo \
+  && rm -rf /var/cache/apk/* \
+  &&  addgroup -g 1001 docker \
+  && adduser -u 1001 -D -G docker docker \
+  && adduser docker wheel \
+  && echo "%wheel ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
+
 USER docker
