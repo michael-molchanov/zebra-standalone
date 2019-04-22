@@ -1,0 +1,7 @@
+Host *
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+  LogLevel ERROR
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+  ForwardAgent yes

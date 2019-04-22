@@ -67,4 +67,10 @@ RUN apk add --update --no-cache sudo \
   && adduser docker wheel \
   && echo "%wheel ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
 
+# SSH config.
+RUN mkdir -p /home/docker/.ssh && chown docker:docker /home/docker/.ssh
+ADD config/ssh /home/docker/.ssh/config
+RUN chown docker:docker /home/docker/.ssh/config && chmod 600 /home/docker/.ssh/config
+
 USER docker
+
