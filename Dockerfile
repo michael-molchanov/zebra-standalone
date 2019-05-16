@@ -1,8 +1,10 @@
-FROM michaeltigr/zebra-build-php-drush-docman-tools:0.0.100
+FROM michaeltigr/zebra-build-php-drush-docman-tools:0.0.101
 
 LABEL maintainer "Michael Molchanov <mmolchanov@adyax.com>"
 
 USER root
+
+ENV VARIANT_LOG_COLOR_WARN=yellow
 
 # Install python base.
 RUN apk add --update --no-cache \
@@ -23,6 +25,7 @@ RUN apk add --update --no-cache \
   && rm -rf /var/lib/apt/lists/*
 
 # Install ansible.
+ENV ANSIBLE_ROLES_PATH=/root/.ansible/roles
 RUN pip3 install --upgrade pip \
   && pip3 install ansible==2.7.10 awscli s3cmd python-magic
 
