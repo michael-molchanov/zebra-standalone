@@ -27,7 +27,7 @@ RUN apk add --update --no-cache \
 # Install ansible.
 ENV ANSIBLE_ROLES_PATH=/root/.ansible/roles
 RUN pip3 install --upgrade pip \
-  && pip3 install ansible==2.7.10 awscli s3cmd python-magic
+  && pip3 install ansible==2.7.10 awscli s3cmd boto3 python-magic
 
 # Install ansistrano.
 RUN ansible-galaxy install ansistrano.deploy ansistrano.rollback
